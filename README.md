@@ -1,6 +1,7 @@
-%%2025학년도 2학기 C++ 프로그래밍 수업 리포지토리 관리
+# 2025학년도 2학기 C++ 프로그래밍 수업 리포지토리 관리
 
-                        classDiagram
+```mermaid
+classDiagram
     class Company {
       - string name
       - string telephone
@@ -29,5 +30,3 @@
     %% 관계
     Invoice *-- Company : composition (has-a)
     Invoice ..> Product : <<use>> (use-a)
-
-    
