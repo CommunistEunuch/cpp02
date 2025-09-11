@@ -6,13 +6,16 @@ using namespace std;
 2. 객체 호환 가능
 3. virtual 함수로 생성
 */
+
 class Pokemon
 {
 public:
 	Pokemon() { cout << "기본(포켓몬) 생성자\n"; }
-	~Pokemon() { cout << "부모클래스(포켓몬) 소멸자 \n"; }
+	//virtual을 적음으로써 부모와 자식의 소멸자를 정상적으로 동작시킬 수 있도록 만든다. (메모리 누수 현상 방지)
+	virtual ~Pokemon() { cout << "부모클래스(포켓몬) 소멸자 \n"; } 
 	virtual void attack() const { cout << "공격 !" << endl; } //3. virtual 함수로 생성
 };
+
 class Pikachu : public Pokemon //is-a
 {
 public:
@@ -20,6 +23,7 @@ public:
 	~Pikachu() { cout << "자식클래스(피카츄) 소멸자 \n"; }
 	void attack() const { cout << "Electric Ball" << endl; } //3. virtual 함수로 생성
 };
+
 int main()
 {
 	Pokemon* pokemon; //1. 포인터 변수
