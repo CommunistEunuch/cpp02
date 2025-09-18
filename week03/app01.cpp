@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 using namespace std;
-/*------ 다형성의 조건 --------
+/*
+------ 다형성의 조건 --------
 1. 포인터 변수 
 2. 객체 호환 가능
 3. virtual 함수로 생성
@@ -37,4 +38,5 @@ int main()
 	delete pokemon;
 	
 	return 0;
+
 }
