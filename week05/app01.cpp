@@ -26,9 +26,11 @@ int main()
 {
 	Animal* pa = new Dog(); //up-casting
 	pa->makeSound();
+	cout << pa << endl;
 
-	Cat* pc = (Cat*)pa;
+	Cat* pc = (Cat*)pa; //Dangerous behavior, And Run smoothly, terrible
 	pc->makeSound();
+	cout << pc << endl;
 	delete pc;
 	pc = nullptr;
 
