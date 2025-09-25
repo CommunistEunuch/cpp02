@@ -24,11 +24,8 @@ public:
 
 int main()
 {
-	Animal a;
-	Dog d;
-	Cat i;
-
-	cout << typeid(a).name() << endl;
-	d.makeSound();
+	Animal* pa = new Animal();
+	pa->makeSound();
+	delete pa;
 	return 0;
 }
