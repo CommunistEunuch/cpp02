@@ -26,11 +26,17 @@ int main()
 {
 	Animal* pa = new Dog(); //up-casting
 	pa->makeSound();
+
+	Cat* pc = (Cat*)pa;
+	pc->makeSound();
+	delete pc;
+	pc = nullptr;
+
 	//Dog* pd = (Dog*)pa; //down-casting, old style (C style)
-	Dog* pd = dynamic_cast<Dog*>(pa); //dynamic-cast
-	pd->makeSound();
-	delete pa;
-	pa = nullptr;
+	//Dog* pd = dynamic_cast<Dog*>(pa); //dynamic-cast
+	//pd->makeSound();
+	//delete pa;
+	//pa = nullptr;
 
 
 
