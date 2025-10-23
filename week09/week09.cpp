@@ -47,6 +47,7 @@ public:
 		return Complex(this->real, this->imaginary);
 	}
 };
+
 //멤버함수였던 오퍼레이터를 논멤버함수로 옮김
 Complex operator+ (const Complex& left, const Complex& right) {
 	int r = left.getReal() + right.getReal();
@@ -69,7 +70,11 @@ int main() {
 	c1.setReal(5);
 	c1.setImaginary(3);
 
-	Complex c3 = c1 + c2;  // Complex c3 = c1.operator+(c2);
+	Complex c3 = c1 + c2;  
+	//아래의 코드는 작동불가 (operator를 nonmember로 바꾸면서 해당하는 operator+가 사라짐)
+	// Complex c3 = c1.operator+(c2); //(X)
+	//따라서, 작동하게 만든 논멤버함수의 정의대로 따라서 작성해야함
+	Complex c3 = operator+(c1, c2);  //(O)
 
 	//Complex c4 = c3++;	
 	Complex c4 = ++c3;
