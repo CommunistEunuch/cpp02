@@ -69,19 +69,31 @@ Complex operator+ (const Complex& left, const Complex& right) {
 		return o;
 	}*/
 
-
+//연산자 오버로딩 istream 
+//istream& operator>> (istream& i, Complex& right){
+//	int real, imag;
+//	cout << "input real value : ";
+//	cin >> real;
+//	right.setReal();
+//	cout << "input imaginary value : ";
+//	cin >> imag;
+//	right.setImaginary();
+//	
+//	return i;
+//}
 /// //////////////////////////////////////////////
 int main() {
 	Complex c1;
-	Complex c2(10, 7);
+	//Complex c2(10, 7);
+	Complex c2;
+	cin >> c2; //cin입장에서 처음보는 입력 개체 //istream 오버로딩
 	c1.setReal(5);
 	c1.setImaginary(3);
 
-	//Complex c3 = c1 + c2;  
 	//아래의 코드는 작동불가 (operator를 nonmember로 바꾸면서 해당하는 operator+가 사라짐)
-	// Complex c3 = c1.operator+(c2); //(X)
+	// Complex c3 = c1.operator+(c2); //(X) 
 	//따라서, 작동하게 만든 논멤버함수의 정의대로 따라서 작성해야함
-	Complex c3 = operator+(c1, c2);  //(O)
+	Complex c3 = operator+(c1, c2);  //(O) //Complex c3 = c1 + c2;  
 
 	//Complex c4 = c3++;	
 	Complex c4 = ++c3;
