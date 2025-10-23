@@ -29,12 +29,12 @@ public:
 		return imaginary;
 	}
 	///////////////////////////////////////////////
-	Complex operator+(const Complex& right) {
-		int r = this->real + right.real;
-		int i = this->imaginary + right.imaginary;
-		return Complex(r, i);
-		//return Complex(r, this->imaginary); 
-	}
+	//Complex operator+(const Complex& right) {
+	//	int r = this->real + right.real;
+	//	int i = this->imaginary + right.imaginary;
+	//	return Complex(r, i);
+	//	//return Complex(r, this->imaginary); 
+	//}
 
 	Complex operator++(int) {  
 		Complex previous(this->real, this->imaginary);
@@ -47,13 +47,20 @@ public:
 		return Complex(this->real, this->imaginary);
 	}
 };
+//멤버함수였던 오퍼레이터를 논멤버함수로 옮김
+Complex operator+ (const Complex& left, const Complex& right) {
+	int r = left.getReal() + right.getReal();
+	int i = left.getimaginary() + right.getimaginary();
+	return Complex(r, i);
+}
 
 //레퍼런스 타입
 // cout << c4 << endl; //이 코드를 실행시키기 위한 오버로딩
-ostream& operator<<(ostream& o, Complex right) {
-	o << right.getReal() << " + " << right.getimaginary() << "i";
-	return o;
-}
+	ostream& operator<<(ostream& o, Complex right) {
+		o << right.getReal() << " + " << right.getimaginary() << "i";
+		return o;
+	}
+
 
 /// //////////////////////////////////////////////
 int main() {
