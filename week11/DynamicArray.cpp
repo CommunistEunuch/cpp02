@@ -7,9 +7,17 @@ DynamicArray::DynamicArray()
 
 DynamicArray::DynamicArray(int size)
 {
-	cout << "悼利硅凯 积己" << endl;
-	ptr = new int[size];
-
+	try{
+		//this->size = size;
+		ptr = new int[size];
+		cout << "悼利硅凯 积己" << endl;
+		throw "4885";
+	}
+	catch (...) {
+		delete[]ptr;
+		cout << "赛 皋葛府 秦力(积己磊 救率)" << endl;
+		throw;
+	}
 }
 
 DynamicArray::~DynamicArray()
@@ -20,11 +28,14 @@ DynamicArray::~DynamicArray()
 
 int DynamicArray::getAt(int index)
 {
+	if (index >= size || index < 0)
+		return 1;
 	return ptr[index];
 }
 
 void DynamicArray::setAt(int index, int value)
 {
+	if (index >=  size || index < 0) 
+			throw 0;
 	ptr[index] = value;
-
 }
