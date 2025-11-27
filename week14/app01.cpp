@@ -9,6 +9,12 @@ public:
 	Pokemon(int hp, string name) : hp(hp), name(name) {
 		cout << name << " 포켓몬 생성됨 \n" <<  endl;
 	};
+	int getHp() const{
+		return hp;
+	};
+	string getName() {
+		return name;
+	}
 };
 //class Pikachu : public Pokemon {
 //public:
@@ -22,6 +28,11 @@ public:
 //	void attack() { "물공격 \n" };
 //};
 
+//연산자 오버로딩 복습했다고 합시당
+ostream& operator<<(ostream& o, Pokemon& right) {
+	o << right.getName() << "hp:" << right.getHp() << endl;
+	return o;
+}
 
 int main() {
 	//Pokemon p1;//추상클래스의 인스턴스(바로 생성) 생성 불가
@@ -36,9 +47,12 @@ int main() {
 	Stack<Pokemon> stackp(2);
 	stackp.push(Pikachu);
 	stackp.push(Squirtle);
+	stackp.pop();
+	stackp.pop();
 
 	return 0;
 }
+
 
 //int main()
 //{
